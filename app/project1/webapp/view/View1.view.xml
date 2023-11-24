@@ -1,0 +1,52 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <Button id="_IDGenButton1" text="create"></Button>
+     <Table id="_IDGenTable1" items="{/department}">
+        <columns>
+                    <Column id="_IDGenColumn1">
+                        <Label id="_IDGenLabel1" text="Employee_Department" />
+                    </Column>
+                    <!-- <Column id="_IDGenColumn2">
+                        <Label id="_IDGenLabel2" text="Employee ID" />
+                    </Column>
+                    <Column id="_IDGenColumn3">
+                        <Label id="_IDGenLabel3" text="Departure_City" />
+                    </Column>
+                    <Column id="_IDGenColumn4">
+                        <Label id="_IDGenLabel4" text="Expected_date_of_departure" />
+                    </Column>
+                    <Column id="_IDGenColumn5">
+                        <Label id="_IDGenLabel5" text="Billable" />
+                    </Column>
+                    <Column id="_IDGenColumn6">
+                        <Label id="_IDGenLabel6" text="Customer_Name" />
+                    </Column>
+                    <Column id="_IDGenColumn7">
+                        <Label id="_IDGenLabel7" text="Place_of_Visit" />
+                    </Column>
+                    <Column id="_IDGenColumn8">
+                        <Label id="_IDGenLabel8" text="Expected_Date_Of_Arrival" />
+                    </Column>
+                    <Column id="_IDGenColumn9">
+                        <Label id="_IDGenLabel9" text="Expected_Duration_In_Days" />
+                    </Column>
+                     <Column id="_IDGenColumn99">
+                        <Label id="_IDGenLabel90" text="Purpose_of_Visit" />
+                    </Column>
+                     <Column id="_IDGenColumn990">
+                        <Label id="_IDGenLabel97" text="Expected_Date_Of_Return" />
+                    </Column> -->
+                </columns>
+        
+         <ColumnListItem id="_IDGenColumnListItem1" >
+         <cells>
+         <Text id="_IDGenText1" text="{department}"></Text>
+         </cells>
+         </ColumnListItem>
+        
+               
+     </Table>
+    </Page>
+</mvc:View>

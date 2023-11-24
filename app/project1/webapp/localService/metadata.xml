@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+        <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="Myservice" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="travelInitiate" EntityType="Myservice.travelInitiate">
+                    <NavigationPropertyBinding Path="Employee_Department" Target="department"/>
+                    <NavigationPropertyBinding Path="Departure_City" Target="city"/>
+                    <NavigationPropertyBinding Path="Customer_Name" Target="customername"/>
+                    <NavigationPropertyBinding Path="Place_of_Visit" Target="city"/>
+                </EntitySet>
+                <EntitySet Name="city" EntityType="Myservice.city"/>
+                <EntitySet Name="department" EntityType="Myservice.department"/>
+                <EntitySet Name="customername" EntityType="Myservice.customername"/>
+            </EntityContainer>
+            <EntityType Name="travelInitiate">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="Employee_Department" Type="Myservice.department"/>
+                <NavigationProperty Name="Departure_City" Type="Myservice.city"/>
+                <Property Name="Expected_date_of_departure" Type="Edm.DateTimeOffset"/>
+                <Property Name="Billable" Type="Edm.String"/>
+                <NavigationProperty Name="Customer_Name" Type="Myservice.customername"/>
+                <NavigationProperty Name="Place_of_Visit" Type="Myservice.city"/>
+                <Property Name="Expected_Date_Of_Arrival" Type="Edm.DateTimeOffset"/>
+                <Property Name="Expected_Duration_In_Days" Type="Edm.String"/>
+                <Property Name="Purpose_of_Visit" Type="Edm.String"/>
+                <Property Name="Expected_Date_Of_Return" Type="Edm.DateTimeOffset"/>
+            </EntityType>
+            <EntityType Name="city">
+                <Property Name="city" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="department">
+                <Property Name="department" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="customername">
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="Myservice.travelInitiate/Billable">
+                <Annotation Term="Validation.AllowedValues">
+                    <Collection>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="Yes"/>
+                            <PropertyValue Property="Value" String="Y"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="No"/>
+                            <PropertyValue Property="Value" String="N"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="Other"/>
+                            <PropertyValue Property="Value" String="O"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
