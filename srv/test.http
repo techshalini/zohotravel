@@ -1,1 +1,32 @@
 GET http://localhost:4004/odata/v4/mysrv/readtravelInt
+
+###for deleting the data
+DELETE  http://localhost:4004/odata/v4/mysrv/deletetravelInt/123
+
+###for updating
+PATCH  http://localhost:4004/odata/v4/mysrv/updatetravelInt/567
+Content-Type: application/json
+
+{
+"Expected_date_of_departure":"2022-02-10",
+"Billable":"Y",
+"Expected_Date_Of_Arrival":"2022-02-10",
+"Expected_Duration_In_Days":"2",
+"Purpose_of_Visit":"urgent",
+"Expected_Date_Of_Return":"2023-12-12" 
+   
+}
+
+###for creating data
+POST http://localhost:4004/odata/v4/mysrv/inserttravelInt
+Content-Type: application/json
+
+{
+"ID":"234567hj",
+"Expected_date_of_departure":"2022-02-10",
+"Billable":"Y",
+"Expected_Date_Of_Arrival":"2022-02-10",
+"Expected_Duration_In_Days":"2",
+"Purpose_of_Visit":"urgent",
+"Expected_Date_Of_Return":"2023-12-12"  
+}
